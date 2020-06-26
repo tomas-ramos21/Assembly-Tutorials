@@ -7,15 +7,15 @@
     # OS: OSx
     ###########################################
 
-.bss
+    .bss
 
-.data
+    .data
 
 output:
     .ascii "The processor Vendor ID is xxxxxxxxxxxx\n"
     len = . - output
 
-.text
+    .text
 
     .global _main
 
@@ -37,8 +37,8 @@ _main:
     jmp _exit
 
 _exit:
-   
-    movq $0x2000001, %rax
-    movq $0x0, %rdi
+
+    movq $0x2000001, %rax   # System call for exit
+    movq $0x0, %rdi         # Exit status
 
     syscall
