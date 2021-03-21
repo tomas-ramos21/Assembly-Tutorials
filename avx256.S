@@ -1,8 +1,8 @@
 
     ########################################
     # AUTHOR: Tomas Ramos
-    # NAME: SIMD SSE 2
-    # PURPOSE: Use SIMD instructions
+    # NAME: SIMD AVX
+    # PURPOSE: Use SIMD AVX instructions
     # COMPILER: CLang
     # OS: OSx
     ########################################
