@@ -24,7 +24,7 @@ _msg:
 
 _main:
     movl _value_1(%rip), %eax   # Load value to multiply
-    imull _value_2(%rip)         # Load multiplier and apply it
+    imull _value_2(%rip), %eax  # Load multiplier and apply it
     subq $0x8, %rsp             # Align Stack to 16 byte
     movq %rax, %rsi             # Move result
     pushq %rsi                  # Push variadic argument
