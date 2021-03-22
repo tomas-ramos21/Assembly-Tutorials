@@ -32,7 +32,7 @@ _main:
     movw _tmp(%rip), %si        # Move FP control information to SI
     leaq _msg(%rip), %rdi       # Move string pointer to RDI
     subq $0x10, %rsp            # Grow stack space
-    andq $-0x10, %rsp           # Align stack space
+    andq $-0xf, %rsp            # Align stack space
     pushq %rsi                  # Push variafix argument
     pushq %rdi                  # Push string pointer
     call _printf                # Call C's printf
