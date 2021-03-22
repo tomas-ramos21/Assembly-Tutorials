@@ -1,0 +1,60 @@
+
+    #####################################################
+    # AUTHOR: Tomas Ramos
+    # NAME: FPU Stack
+    # PURPOSE: Perform standards operations on FPU Stack
+    # COMPILER: CLang
+    # OS: OSx
+    #####################################################
+
+.section __DATA,__data
+
+_value1:
+    .int 40
+
+_value2:
+    .float 92.4405
+
+_value3:
+    .double 221.440321
+
+_msg:
+    .asciz "Result: %f\n"
+
+.section __BSS,__bss
+
+    .lcomm _int1, 4
+    .lcomm _control, 2
+    .lcomm _status, 2
+    .lcomm _result, 4
+
+.section __TEXT,__text
+    .global _main
+
+_main:
+    nop
+    finit                       # Set control and status register to defaults
+    fstsw _status(%rip)         # Move status register to memory
+    fstcw _control(%rip)        # Move control register to memory
+    filds _value1(%rip)         # Load integer value to FPU stack
+    fists _int1(%rip)           # Move top of the stack to memory
+    fists _value2(%rip)         # Load single-precision number
+    fistl _value3(%rip)         # Load double-precision number
+    fst %st(4)                  # Copy ST0 to ST4
+    fxch %st(1)                 # Exchange ST0 with ST1
+    fstps _result(%rip)         # Move result to memory
+
+_show:
+    xorq %rsi, %rsi
+    movl _result(%rip), %esi
+    movq _msg(%rip), %rdi
+    subq $0x10, %rsp
+    andq $-0xf, %rsp
+    pushq %rsi
+    pushq %rdi
+    call _printf
+
+_exit:
+    movq $0x2000001, %rax
+    movq $0x0, %rdi
+    syscall
