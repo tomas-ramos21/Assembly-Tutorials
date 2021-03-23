@@ -32,27 +32,23 @@ _msg:
     .global _main
 
 _main:
-    nop
     finit                       # Set control and status register to defaults
-    fstsw _status(%rip)         # Move status register to memory
     fstcw _control(%rip)        # Move control register to memory
+    fstsw _status(%rip)         # Move status register to memory
     filds _value1(%rip)         # Load integer value to FPU stack
     fists _int1(%rip)           # Move top of the stack to memory
-    fists _value2(%rip)         # Load single-precision number
-    fistl _value3(%rip)         # Load double-precision number
+    flds _value2(%rip)          # Load single-precision number
+    fldl _value3(%rip)          # Load double-precision number
     fst %st(4)                  # Copy ST0 to ST4
     fxch %st(1)                 # Exchange ST0 with ST1
     fstps _result(%rip)         # Move result to memory
 
 _show:
-    xorq %rsi, %rsi
-    movl _result(%rip), %esi
-    movq _msg(%rip), %rdi
-    subq $0x10, %rsp
-    andq $-0xf, %rsp
-    pushq %rsi
-    pushq %rdi
-    call _printf
+    subq $0x8, %rsp
+    cvtss2sd _result(%rip), %xmm0
+    leaq _msg(%rip), %rdi
+    movq $0x1, %rax
+    callq _printf
 
 _exit:
     movq $0x2000001, %rax
