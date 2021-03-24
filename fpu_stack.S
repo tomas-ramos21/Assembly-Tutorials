@@ -44,13 +44,13 @@ _main:
     fstps _result(%rip)         # Move result to memory
 
 _show:
-    subq $0x8, %rsp
-    cvtss2sd _result(%rip), %xmm0
-    leaq _msg(%rip), %rdi
-    movq $0x1, %rax
-    callq _printf
+    subq $0x8, %rsp               # Stack Alignment
+    cvtss2sd _result(%rip), %xmm0 # Convert Single-Precision to Double-Precision
+    leaq _msg(%rip), %rdi         # Load String pointer
+    movq $0x1, %rax               # Number of floats inside XMM0 to be printed
+    callq _printf                 # Call C's printf
 
 _exit:
-    movq $0x2000001, %rax
-    movq $0x0, %rdi
+    movq $0x2000001, %rax         # Exit code call number
+    movq $0x0, %rdi               # Exit status code
     syscall
