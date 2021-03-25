@@ -14,7 +14,6 @@ _msg:
     .asciz "You are in section: %d\n"
 
 .section __TEXT,__text
-
     .global _main
 
 _main:
