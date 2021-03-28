@@ -1,8 +1,8 @@
 
     #####################################################
     # AUTHOR: Tomas Ramos
-    # NAME: Compare Strings
-    # PURPOSE: Compare 2 strings
+    # NAME: Compare String with REP
+    # PURPOSE: Compare strings with using REP
     # COMPILER: CLang
     # OS: OSx
     #####################################################
@@ -34,10 +34,8 @@ _main:
     leaq _string2(%rip), %rdi   # Load string 2
 
 _compare:
-    cmpsb                       # Compare string byte
+    repe cmpsb                  # Compare string byte
     jne _not_equal              # Jump to _not_equal
-    decq %rcx                   # Decrement counter
-    jnz _compare                # Loop back
     leaq _equal(%rip), %rdi     # Load equality string
     call _printf                # Call C's printf
     movq $0x2000001, %rax       # Set up system's exit call number
