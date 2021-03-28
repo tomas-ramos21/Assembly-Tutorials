@@ -24,6 +24,7 @@ _some_string:
 _main:
     subq $0x8, %rsp               # Align the stack
     movq $len, %rcx               # Get string length
+    cld                           # Clear DF Flag
     leaq _some_string(%rip), %rsi # Load source string address
     leaq buffer(%rip), %rdi       # Load destination address
 
