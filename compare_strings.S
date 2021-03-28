@@ -22,7 +22,7 @@ _equal:
 _different:
     .asciz "Strings are NOT equal.\n"
 
-.section __TEXT,_text
+.section __TEXT,__text
     .globl _main
 
 _main:
