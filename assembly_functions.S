@@ -25,7 +25,7 @@ _main:
     subq $0x8, %rsp        # Grow stack for return address
     call _area             # Call _area function
     cvtss2sd (%rsp), %xmm0 # Load result
-    movq $0x1, %rax        #
+    movq $0x1, %rax        # Numbers of variadic arguments
     leaq _msg(%rip), %rdi  # Load string
     call _printf           # Call C's printf
     movq $0x2000001, %rax  # Setup system's exit call number
