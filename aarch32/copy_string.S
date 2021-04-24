@@ -1,4 +1,13 @@
 
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@ AUTHOR: Tomas Ramos
+	@ NAME: Copy String
+	@ PURPOSE: Copy a string
+	@ COMPILER: GCC
+	@ OS: Linux
+	@ ARCH: ARM 32-Bits
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 .section .data
 
 string:
@@ -20,7 +29,7 @@ copy:
 	add  r1, r1, #1		@ Increment pointer
 	tst r2, r2		@ Check if it's the null character
 	bne copy		@ Loop back
-	mov r0, #1		@ Return 1 if successfull
+	mov r0, #1		@ Return 1 if successful
 	bx lr			@ Return from function
 
 main:

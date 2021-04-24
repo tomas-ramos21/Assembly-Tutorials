@@ -1,3 +1,14 @@
+
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@ AUTHOR: Tomas Ramos
+	@ NAME: Addition
+	@ PURPOSE: Use addition instruction
+	@ COMPILER: GCC
+	@ OS: Linux
+	@ ARCH: ARM 32-Bits
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 .section .data
 
 integer:

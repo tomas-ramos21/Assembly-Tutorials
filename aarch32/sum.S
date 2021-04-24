@@ -1,10 +1,11 @@
-
-	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	@ Name: Sum
-	@ Purpose: Find the sum of array
-	@ Arch: ARM
-	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@ AUTHOR: Tomas Ramos
+	@ NAME: Sum
+	@ PURPOSE: Find sum of array
+	@ COMPILER: GCC
+	@ OS: Linux
+	@ ARCH: ARM 32-Bits
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 .section .data
 
