@@ -4,7 +4,7 @@
 	@ PURPOSE: Find sum of array
 	@ COMPILER: GCC
 	@ OS: Linux
-	@ ARCH: ARM 32-Bits
+	@ ARCH: ARMv7 32-Bits
 	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 .section .data
